@@ -1,10 +1,10 @@
-<% form_for @survey do |f| %>
+<%= form_for @survey do |f| %>
   <%= f.error_messages %>
   <p>
     <%= f.label :submitted_by %><br />
     <%= f.text_field :submitted_by %>
   </p>
-  <% f.fields_for :responses do |c| %>
+  <%= f.fields_for :responses do |c| %>
     <%= c.hidden_field :punishment_id, :value => c.object.punishment.id %>
     <%= "#{c.object.punishment.name} is "%>
     <%= c.select :appropriate_when, %w(Never Rarely Sometimes Occasionally Always) %>
